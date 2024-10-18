@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import SearchInput from "../Searchinput";
-import UserProfile from "../UserProfile";
-import RepoList from "../RepoList";
+import SearchInput from "./components/Searchinput";
+import UserProfile from "./components/UserProfile";
+import RepoList from "./components/RepoList";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "../ThemeToggle";
-import { Repo } from "../../types/Repo";
+import { ThemeToggle } from "./components/ThemeToggle";
+import { Repo } from "./types/Repo";
 
 type User = {
   login: string;
