@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 import SearchInput from "../app/components/Searchinput";
-import UserProfile from "./userProfile/page";
-import RepoList from "./repolist/page";
+import UserProfile from "./components/UserProfile";
+import RepoList from "./components/RepoList";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from './components/ThemeToggle';
+import { Repo } from "./types/Repo";
 
 type User = {
   login: string;
@@ -15,13 +16,7 @@ type User = {
   repos_url: string;
 };
 
-type Repo = {
-  name: string;
-  html_url: string;
-  description?: string;
-  stargazers_count: number;
-  forks_count: number;
-};
+
 
  const Home = () =>{
   const [user, setUser] = useState<User | null>(null);

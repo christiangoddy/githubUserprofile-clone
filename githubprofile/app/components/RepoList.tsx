@@ -1,18 +1,7 @@
-
 import { useTheme } from 'next-themes';
+import {  RepoListProps } from '../types/Repo';
 
-type Repo = {
-    name: string;
-    html_url: string;
-    description?: string;
-    stargazers_count: number;
-    forks_count: number;
-  };
-  
-  type RepoListProps = {
-    repos: Repo[];
-  };
-  
+
   const RepoList = ({ repos }: RepoListProps) => {
     const { resolvedTheme } = useTheme();
     return (
@@ -38,4 +27,3 @@ type Repo = {
   };
   
   export default RepoList;
-  
