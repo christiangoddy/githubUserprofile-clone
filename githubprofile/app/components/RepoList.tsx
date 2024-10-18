@@ -10,7 +10,7 @@ import {  RepoListProps } from '../types/Repo';
         <ul className="space-y-4">
           {repos.map((repo) => (
             <li key={repo.name} className={`bg-white p-4 rounded-lg shadow-md ${
-                   resolvedTheme === "dark" ? "bg-black" : "bg-white"
+                   resolvedTheme === "dark" ? "bg-[#0d1117]" : "bg-white"
             }`}>
               <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 font-bold">
                 {repo.name}

@@ -19,7 +19,7 @@ const UserProfile = ({
   return (
     <div
       className={`flex flex-col bg-white p-4 rounded-lg shadow-md mt-10 ${
-        resolvedTheme === "dark" ? "bg-black" : "bg-white"
+        resolvedTheme === "dark" ? "bg-[#0d1117]" : "bg-white"
       }`}
     >
       <img src={avatar_url} alt={username} className="w-24 h-24 rounded-full" />
