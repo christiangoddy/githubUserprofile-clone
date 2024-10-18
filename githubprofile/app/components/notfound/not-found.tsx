@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import SearchInput from "../app/components/Searchinput";
-import UserProfile from "./components/UserProfile";
-import RepoList from "./components/RepoList";
+import SearchInput from "../Searchinput";
+import UserProfile from "../UserProfile";
+import RepoList from "../RepoList";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from './components/ThemeToggle';
-import { Repo } from "./types/Repo";
+import { ThemeToggle } from "../ThemeToggle";
+import { Repo } from "../../types/Repo";
 
 type User = {
   login: string;
@@ -16,9 +16,7 @@ type User = {
   repos_url: string;
 };
 
-
-
- const Home = () =>{
+const Home = () => {
   const [user, setUser] = useState<User | null>(null);
   const [repos, setRepos] = useState<Repo[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -59,7 +57,9 @@ type User = {
         const repoData = await fetchRepos(user.login);
         setRepos(repoData);
         if (repoData.length < 30) {
-          setRepoMessage(`${user.login} has only ${repoData.length} repositories.`);
+          setRepoMessage(
+            `${user.login} has only ${repoData.length} repositories.`
+          );
         } else {
           setRepoMessage(null);
         }
@@ -71,7 +71,7 @@ type User = {
 
   return (
     <div className="flex flex-col items-center mt-5 ">
-      <ThemeToggle/>
+      <ThemeToggle />
       <SearchInput onSearch={fetchUserProfile} />
       {error && <p className="text-red-500 mt-4">{error}</p>}
       {user && (
@@ -83,47 +83,45 @@ type User = {
           public_repos={user.public_repos}
         />
       )}
-      {repos.length > 0 &&(
+      {repos.length > 0 && (
         <>
-         <RepoList repos={repos} />
-         {repoMessage && <p className="text-red-500 mt-4">{repoMessage}</p>}
-         <Button
-        type="submit"
-        className="text-white bg-red-500 hover:bg-red-400 mt-10 mb-10"
-        disabled={loading}
-        onClick={handleFetchRepos}
-      >
-        {loading ? (
-          <svg
-            className="animate-spin h-5 w-5 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
+          <RepoList repos={repos} />
+          {repoMessage && <p className="text-red-500 mt-4">{repoMessage}</p>}
+          <Button
+            type="submit"
+            className="text-white bg-red-500 hover:bg-red-400 mt-10 mb-10"
+            disabled={loading}
+            onClick={handleFetchRepos}
           >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              color="black"
-              strokeWidth="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-            ></path>
-          </svg>
-        ) : (
-          "Load more"
-        )}
-      </Button>
+            {loading ? (
+              <svg
+                className="animate-spin h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  color="black"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                ></path>
+              </svg>
+            ) : (
+              "Load more"
+            )}
+          </Button>
         </>
       )}
-     
-   
     </div>
   );
-}
-export default Home
+};
+export default Home;
