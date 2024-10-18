@@ -23,7 +23,7 @@ type Repo = {
   forks_count: number;
 };
 
-export default function Home() {
+ const Home = () =>{
   const [user, setUser] = useState<User | null>(null);
   const [repos, setRepos] = useState<Repo[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -131,3 +131,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home
