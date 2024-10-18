@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+      Color:{
+        "primary": "#0d1117",
+      }
   	}
   },
   plugins: [require("tailwindcss-animate")],

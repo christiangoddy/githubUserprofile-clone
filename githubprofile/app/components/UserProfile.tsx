@@ -1,6 +1,6 @@
 import { useTheme } from "next-themes";
 
-type UserProfileProps = {
+ export type UserProfileProps = {
   avatar_url: string;
   username: string;
   bio?: string;
@@ -19,7 +19,7 @@ const UserProfile = ({
   return (
     <div
       className={`flex flex-col bg-white p-4 rounded-lg shadow-md mt-10 ${
-        resolvedTheme === "dark" ? "bg-[#0d1117]" : "bg-white"
+        resolvedTheme === "dark" ? "bg-black" : "bg-white"
       }`}
     >
       <img src={avatar_url} alt={username} className="w-24 h-24 rounded-full" />
